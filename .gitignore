@@ -1,0 +1,8 @@
+.stryker-tmp/
+.vscode/
+dist/
+node_modules/
+reports/
+.DS_store
+package-lock.json
+stryker.log

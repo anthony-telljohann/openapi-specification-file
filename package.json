@@ -1,0 +1,57 @@
+{
+  "name": "openapi-specification-file",
+  "version": "0.0.0-development",
+  "description": "OpenAPI Specification File",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.build.json",
+    "format": "npm run format:file -- \"./**/*.{js,json,lintstagedrc,md,prettierrc,ts}\"",
+    "format:file": "prettier --write",
+    "lint": "npm run lint:source && npm run lint:test",
+    "lint:source": "tslint -p tsconfig.json -c tslint.json -e \"**/*{fixture,spec}.ts\" --fix",
+    "lint:test": "npm run lint:testfile -- **/*spec.ts",
+    "lint:testfile": "tslint -p tsconfig.json -c tslint.test.json -e \"**/*fixture.ts\" --fix",
+    "test": "npm run test:unit && npm run test:mutation",
+    "test:mutation": "stryker run",
+    "test:unit": "jest --coverage",
+    "watch": "npm run test:unit -- --watch",
+    "semantic-release": "semantic-release"
+  },
+  "dependencies": {
+    "async-file": "2.0.2",
+    "swagger-parser": "6.0.5"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "1.0.3",
+    "@stryker-mutator/html-reporter": "1.0.3",
+    "@stryker-mutator/jest-runner": "1.0.3",
+    "@stryker-mutator/typescript": "1.0.3",
+    "@types/jest": "24.0.9",
+    "@types/node": "11.10.4",
+    "@types/swagger-schema-official": "^2.0.15",
+    "commitizen": "^3.0.7",
+    "cz-conventional-changelog": "^2.1.0",
+    "jest": "24.1.0",
+    "jest-html-reporter": "2.4.4",
+    "jest-junit": "6.3.0",
+    "prettier": "1.16.4",
+    "rimraf": "^2.6.3",
+    "semantic-release": "^15.13.3",
+    "ts-jest": "24.0.0",
+    "ts-node": "8.0.2",
+    "tslint": "5.13.1",
+    "tslint-clean-code": "0.2.9",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-sonarts": "1.9.0",
+    "typescript": "3.3.3333"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anthony-telljohann/openapi-specification-file.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

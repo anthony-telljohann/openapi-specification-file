@@ -14,7 +14,7 @@
     "test": "npm run test:unit && npm run test:mutation",
     "test:mutation": "stryker run",
     "test:unit": "jest --coverage",
-    "watch": "npm run test:unit -- --watch",
+    "watch": "npm run test:unit -- --watch"
   },
   "dependencies": {
     "async-file": "2.0.2",
